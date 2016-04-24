@@ -5,8 +5,7 @@ filetype off                  " required
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-
+" call vundle#begin('~/some/path/here')
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
@@ -17,6 +16,8 @@ Plugin 'leafgarland/typescript-vim'
 Plugin 'clausreinke/typescript-tools.vim'
 " Plugin 'altercation/vim-colors-solarized'
 Plugin 'chriskempson/base16-vim'
+"AutoCompletePlugin
+Plugin 'Valloric/YouCompleteMe'
 " Plugin 'tpope/vim-fugitive'
 " plugin from http://vim-scripts.org/vim/scripts.html
 " Plugin 'L9'
