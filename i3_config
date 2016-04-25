@@ -84,6 +84,10 @@ bindsym XF86AudioPause exec playerctl pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
+# lockscreen
+bindsym $mod+l exec "~/dotfiles/scripts/lock.sh"
+exec xautolock -time 15 -locker '~/dotfiles/scripts/lock.sh' &
+
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
 
@@ -98,10 +102,10 @@ bindsym $mod+d exec dmenu_run
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
+# bindsym $mod+j focus left
+# bindsym $mod+k focus down
+# bindsym $mod+l focus up
+# bindsym $mod+semicolon focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left

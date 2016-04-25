@@ -6,6 +6,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
 " call vundle#begin('~/some/path/here')
+
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
@@ -74,8 +75,8 @@ set t_Co=16 "background and colorscheme
 set background=dark
 colorscheme base16-flat
 
-"Typescript settings
-let g:typescript_compiler_options = '-sourcemap' "compiler options
-autocmd QuickFixCmdPost [^l]* nested cwindow " shows Quickfix if :make fails
-autocmd QuickFixCmdPost    l* nested lwindow
-    au BufRead,BufNewFile *.ts        setlocal filetype=typescript
+" Typescript settings
+" let g:typescript_compiler_options = '-sourcemap' "compiler options
+" autocmd QuickFixCmdPost [^l]* nested cwindow " shows Quickfix if :make fails
+" autocmd QuickFixCmdPost    l* nested lwindow
+"    au BufRead,BufNewFile *.ts        setlocal filetype=typescript
