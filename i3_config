@@ -65,6 +65,10 @@ exec --no-startup-id feh --bg-fill ~/wallpaper/death_star.png
 exec "xinput --set-prop 'ETPS/2 Elantech Touchpad' 280 -77 -77"
 # palm detection
 exec "xinput set-prop 'ETPS/2 Elantech Touchpad' 293 1"
+# palm dimensions
+exec "xinput set-prop 'ETPS/2 Elantech Touchpad' 294 3 100"
+# tap time
+exec "xinput set-prop 'ETPS/2 Elantech Touchpad' 273 190"
 
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
