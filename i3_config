@@ -57,7 +57,7 @@ floating_modifier $mod
 # dropbox
 exec --no-startup-id dropbox start
 # keyboard layout
-exec setxkbmap -option grp:alt_shift_toggle
+exec setxkbmap -option grp:ctrl_alt_toggle
 
 # wallpaper
 exec --no-startup-id feh --bg-fill ~/wallpaper/death_star.png
