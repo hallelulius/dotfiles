@@ -11,4 +11,4 @@ convert "$tmpbg" -scale 10% -scale 1000% "$tmpbg"
 i3lock -u -i "$tmpbg"
 
 # Turn the screen off after a delay.
-sleep 10; pgrep i3lock && xset dpms force off
+# sleep 10; pgrep i3lock && xset dpms force off
