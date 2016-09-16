@@ -77,17 +77,9 @@ exec --no-startup-id dropbox start
 exec setxkbmap -option grp:ctrl_alt_toggle
 
 # wallpaper
-exec --no-startup-id feh --bg-fill ~/wallpaper/death_star.png
-# natural scrolling
-exec "xinput --set-prop 'ETPS/2 Elantech Touchpad' 280 -77 -77"
-# palm detection
-exec "xinput set-prop 'ETPS/2 Elantech Touchpad' 293 1"
-# palm dimensions
-exec "xinput set-prop 'ETPS/2 Elantech Touchpad' 294 3 1"
-# tap time
-exec "xinput set-prop 'ETPS/2 Elantech Touchpad' 273 250"
-# double tap right click
-exec "xinput set-prop 'ETPS/2 Elantech Touchpad' 287 0 0 0 1 3 2"
+exec --no-startup-id feh --bg-fill ~/wallpaper/tokyo.jpg
+# tochpad settings
+exec ~/dotfiles/scripts/xinput.sh
 # disable touchpad while typing 
 exec "syndaemon -i 0.3 -k -d"
 
@@ -104,13 +96,14 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightne
 # bindsym XF86TouchpadToggle exec /some/path/toggletouchpad.sh # toggle touchpad
 
 # Media player controls
-bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
 # bindsym XF86AudioPause exec playerctl pause
-bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioNext exec --no-startup-id playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
 # lockscreen
 bindsym Mod4+l exec "~/dotfiles/scripts/lock.sh"
+bindsym Mod4+p exec "~/dotfiles/scripts/xinput.sh"
 #exec xautolock -time 15 -locker '~/dotfiles/scripts/lock.sh' &
 
 # start a terminal
@@ -126,7 +119,7 @@ bindsym $mod+m move workspace to output left
 bindsym $mod+n "exec xrandr --output HDMI1 --auto --right-of eDP1"
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run
+bindsym $mod+d exec --no-startup-id dmenu_run
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -243,7 +236,7 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
         status_command i3status
-        position top
+        position bottom
         strip_workspace_numbers yes 
     colors {
         separator $base03
@@ -256,4 +249,7 @@ bar {
     }
 }
 
-
+# gaps
+gaps inner 8
+smart_borders no_gaps
+for_window [class="^.*"] border pixel 0
