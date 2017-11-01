@@ -17,6 +17,7 @@ Plugin 'junegunn/fzf.vim'       " Fuzzy search
 Plugin 'w0rp/ale'               " Asynchronous lint engine
 Plugin 'itchyny/lightline.vim'  " Statusline for vim
 Plugin 'airblade/vim-gitgutter' " Show git diff
+Plugin 'edkolev/tmuxline.vim'   " Tmux statusline generator
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -101,3 +102,6 @@ function! LightlineLinterOK() abort
   let l:all_non_errors = l:counts.total - l:all_errors
   return l:counts.total == 0 ? '✓ ' : ''
 endfunction
+
+" tmuxline
+let g:tmuxline_powerline_separators = 0
