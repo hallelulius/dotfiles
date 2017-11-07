@@ -8,16 +8,19 @@ call vundle#begin()
 "call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'   " Plugin manager
-Plugin 'tpope/vim-fugitive'     " Git plugin
-Plugin 'scrooloose/nerdtree'    " File manager
-Plugin 'mileszs/ack.vim'        " Searching files (together with ag)
-Plugin 'junegunn/fzf'           " Fuzzy search
-Plugin 'junegunn/fzf.vim'       " Fuzzy search
-Plugin 'w0rp/ale'               " Asynchronous lint engine
-Plugin 'itchyny/lightline.vim'  " Statusline for vim
-Plugin 'airblade/vim-gitgutter' " Show git diff
-Plugin 'edkolev/tmuxline.vim'   " Tmux statusline generator
+Plugin 'VundleVim/Vundle.vim'       " Plugin manager
+Plugin 'tpope/vim-fugitive'         " Git plugin
+Plugin 'scrooloose/nerdtree'        " File manager
+Plugin 'mileszs/ack.vim'            " Searching files (together with ag)
+Plugin 'junegunn/fzf'               " Fuzzy search
+Plugin 'junegunn/fzf.vim'           " Fuzzy search
+Plugin 'w0rp/ale'                   " Asynchronous lint engine
+Plugin 'itchyny/lightline.vim'      " Statusline for vim
+Plugin 'airblade/vim-gitgutter'     " Show git diff
+Plugin 'edkolev/tmuxline.vim'       " Tmux statusline generator
+Plugin 'takumakei/daily-notes.vim'  " Keep daily notes at work
+
+
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -114,3 +117,6 @@ endfunction
 
 " tmuxline
 let g:tmuxline_powerline_separators = 0
+
+" daily-notes
+let g:daily_notes_base = "/mnt/c/Users/vikhel/OneDrive\ -\ Zenuity/Documents/DailyNotes"
