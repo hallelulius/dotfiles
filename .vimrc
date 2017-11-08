@@ -19,6 +19,13 @@ Plugin 'itchyny/lightline.vim'      " Statusline for vim
 Plugin 'airblade/vim-gitgutter'     " Show git diff
 Plugin 'edkolev/tmuxline.vim'       " Tmux statusline generator
 Plugin 'takumakei/daily-notes.vim'  " Keep daily notes at work
+Plugin 'valloric/youcompleteme'     " Code completion
+"Plugin 'tpope/vim-surround'         " Change delete surrondings in pairs
+Plugin 'lervag/vimtex'              " Latex
+"Plugin 'Valloric/YouCompleteMe'     " Fuzzy-search code completion
+Plugin 'SirVer/ultisnips'           " Snippet engine
+Plugin 'honza/vim-snippets'         " Snippets
+
 
 
 
@@ -120,3 +127,21 @@ let g:tmuxline_powerline_separators = 0
 
 " daily-notes
 let g:daily_notes_base = "/mnt/c/Users/vikhel/OneDrive\ -\ Zenuity/Documents/DailyNotes"
+
+" latex
+let g:vimtex_view_general_viewer = 'mupdf' " Set default viewer
+
+let g:vimtex_latexmk_options='-pdf -pdflatex="xelatex -synctex=1 \%S \%O" -verbose -file-line-error -interaction=nonstopmode'
+
+" Latex code completion
+if !exists('g:ycm_semantic_triggers')
+	let g:ycm_semantic_triggers = {}
+endif
+let g:ycm_semantic_triggers.tex = g:vimtex#re#youcompleteme
+
+
+" Snippet trigger configuration. Do not use <tab> if you use
+" https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<c-j>"
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsJumpBackwardTrigger="<c-k>"
