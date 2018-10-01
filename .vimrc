@@ -12,7 +12,6 @@ Plugin 'VundleVim/Vundle.vim'       " Plugin manager
 Plugin 'tpope/vim-fugitive'         " Git plugin
 Plugin 'scrooloose/nerdtree'        " File manager
 Plugin 'mileszs/ack.vim'            " Searching files (together with ag)
-Plugin 'junegunn/fzf'               " Fuzzy search
 Plugin 'junegunn/fzf.vim'           " Fuzzy search
 Plugin 'w0rp/ale'                   " Asynchronous lint engine
 Plugin 'itchyny/lightline.vim'      " Statusline for vim
@@ -126,7 +125,7 @@ endfunction
 let g:tmuxline_powerline_separators = 0
 
 " daily-notes
-let g:daily_notes_base = "/mnt/c/Users/vikhel/OneDrive\ -\ Zenuity/Documents/DailyNotes"
+let g:daily_notes_base = "~/daily_notes"
 
 " latex
 let g:vimtex_view_general_viewer = 'mupdf' " Set default viewer
@@ -138,10 +137,17 @@ if !exists('g:ycm_semantic_triggers')
 	let g:ycm_semantic_triggers = {}
 endif
 let g:ycm_semantic_triggers.tex = g:vimtex#re#youcompleteme
-
+let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
 
 " Snippet trigger configuration. Do not use <tab> if you use
 " https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger="<c-j>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+
+" Load all plugins now.
+" Plugins need to be added to runtimepath before helptags can be generated.
+packloadall
+" Load all of the helptags now, after plugins have been loaded.
+" All messages and errors will be ignored.
+silent! helptags
