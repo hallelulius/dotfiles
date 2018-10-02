@@ -11,22 +11,20 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'       " Plugin manager
 Plugin 'tpope/vim-fugitive'         " Git plugin
 Plugin 'scrooloose/nerdtree'        " File manager
-Plugin 'mileszs/ack.vim'            " Searching files (together with ag)
+"Plugin 'mileszs/ack.vim'            " Searching files (together with ag)
+Plugin 'junegunn/fzf'               " Fuzzy search
 Plugin 'junegunn/fzf.vim'           " Fuzzy search
 Plugin 'w0rp/ale'                   " Asynchronous lint engine
 Plugin 'itchyny/lightline.vim'      " Statusline for vim
 Plugin 'airblade/vim-gitgutter'     " Show git diff
 Plugin 'edkolev/tmuxline.vim'       " Tmux statusline generator
-Plugin 'takumakei/daily-notes.vim'  " Keep daily notes at work
-Plugin 'valloric/youcompleteme'     " Code completion
+Plugin 'vimwiki/vimwiki'            " Maintain notes
+Plugin 'tpope/vim-obsession'        " Store vim sessions 
 "Plugin 'tpope/vim-surround'         " Change delete surrondings in pairs
-Plugin 'lervag/vimtex'              " Latex
-"Plugin 'Valloric/YouCompleteMe'     " Fuzzy-search code completion
-Plugin 'SirVer/ultisnips'           " Snippet engine
-Plugin 'honza/vim-snippets'         " Snippets
-
-
-
+"Plugin 'lervag/vimtex'              " Latex
+Plugin 'Valloric/YouCompleteMe'     " Fuzzy-search code completion
+"Plugin 'SirVer/ultisnips'           " Snippet engine
+"Plugin 'honza/vim-snippets'         " Snippets
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -64,11 +62,6 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 map ; :Buffers<CR>
 nmap <Leader>t :Files<CR>
 nmap <Leader>r :Tags<CR>
-
-" Searching
-if executable('ag')
-      let g:ackprg = 'ag --vimgrep'
-  endif
 
 " ALE
   
@@ -124,26 +117,28 @@ endfunction
 " tmuxline
 let g:tmuxline_powerline_separators = 0
 
-" daily-notes
-let g:daily_notes_base = "~/daily_notes"
-
 " latex
-let g:vimtex_view_general_viewer = 'mupdf' " Set default viewer
+" let g:vimtex_view_general_viewer = 'mupdf' " Set default viewer
 
-let g:vimtex_latexmk_options='-pdf -pdflatex="xelatex -synctex=1 \%S \%O" -verbose -file-line-error -interaction=nonstopmode'
+" let g:vimtex_latexmk_options='-pdf -pdflatex="xelatex -synctex=1 \%S \%O" -verbose -file-line-error -interaction=nonstopmode'
 
 " Latex code completion
+"let g:ycm_semantic_triggers.tex = g:vimtex#re#youcompleteme
+
+" YouCompleteMe
 if !exists('g:ycm_semantic_triggers')
 	let g:ycm_semantic_triggers = {}
 endif
-let g:ycm_semantic_triggers.tex = g:vimtex#re#youcompleteme
 let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
 
 " Snippet trigger configuration. Do not use <tab> if you use
 " https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<c-j>"
-let g:UltiSnipsJumpForwardTrigger="<c-j>"
-let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+"let g:UltiSnipsExpandTrigger="<c-j>"
+"let g:UltiSnipsJumpForwardTrigger="<c-j>"
+"let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+
+" vimwiki options
+let g:vimwiki_list = [{'syntax': 'markdown', 'ext': '.md'}]
 
 " Load all plugins now.
 " Plugins need to be added to runtimepath before helptags can be generated.
